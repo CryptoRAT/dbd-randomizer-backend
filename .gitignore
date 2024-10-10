@@ -27,3 +27,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### IntelliJ IDEA files ###
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Output Directories ###
+target/
+

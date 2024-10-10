@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class HelloWorldApplication {
+public class RandomizerApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloWorldApplication.class, args);
+        SpringApplication.run(RandomizerApp.class, args);
     }
 
     @RestController
     @RequestMapping("/api")
-    class HelloWorldController {
+    class RandomizerController {
 
         @GetMapping("/hello")
         public String helloWorld() {
