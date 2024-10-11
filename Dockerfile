@@ -2,7 +2,7 @@
 FROM openjdk:17
 
 # Set the working directory inside the container
-#WORKDIR /app
+WORKDIR /app
 
 
 # Copy the Maven build output (the jar file) into the container
