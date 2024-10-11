@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Package the application (build the JAR)
-RUN mvn clean package
+RUN mvn clean package -DskipTests=true
 
 # Start with a base image that contains JDK 17 for running the app
 FROM openjdk:17
@@ -20,6 +20,7 @@ WORKDIR /app
 # Copy the JAR file from the Maven build stage to the runtime stage
 COPY --from=build /app/target/dbd-randomizer-0.0.1.jar /app/dbd-randomizer.jar
 
+ENV SPRING_PROFILES_ACTIVE=prod
 # Expose the port that the app will run on (usually 8080 for Spring Boot)
 EXPOSE 8080
 
