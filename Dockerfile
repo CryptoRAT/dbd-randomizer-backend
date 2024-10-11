@@ -1,5 +1,5 @@
 # Start with a Maven image to build the JAR
-FROM maven:3.8.7-openjdk-17 AS build
+FROM maven:3.8.3-openjdk-17 AS build
 
 # Set the working directory for the build
 WORKDIR /app
