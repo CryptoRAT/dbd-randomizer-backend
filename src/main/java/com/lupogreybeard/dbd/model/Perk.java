@@ -2,21 +2,15 @@ package com.lupogreybeard.dbd.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "characters")
-public class Character {
-
+public class Perk {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "colloquial_name")
-    private String colloquialName;
 
     @Column(name = "type", nullable = false)
     private String type;  // You might use an enum here in the future
@@ -27,8 +21,9 @@ public class Character {
     @Column(name = "image_path")
     private String imagePath;
 
-    @OneToMany(mappedBy = "owner")
-    private List<Perk> perks;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Character owner;
 
     // Getters and Setters
     public Long getId() {
@@ -45,14 +40,6 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getColloquialName() {
-        return colloquialName;
-    }
-
-    public void setColloquialName(String colloquialName) {
-        this.colloquialName = colloquialName;
     }
 
     public String getType() {
@@ -79,11 +66,11 @@ public class Character {
         this.imagePath = imagePath;
     }
 
-    public List<Perk> getPerks() {
-        return this.perks;
+    public Character getOwner() {
+        return this.owner;
     }
 
-    public void setPerks(List<Perk> perks) {
-        this.perks = perks;
+    public void setOwner(Character owner) {
+        this.owner = owner;
     }
 }
